@@ -27,6 +27,13 @@ class Task
     private $email;
 
     /**
+     * @var boolean
+     *
+     * @ORM\Column(type="boolean", name="status", nullable=false)
+     */
+    private $status;
+
+    /**
      * @ORM\Column(type="text")
      */
     private $description;
@@ -70,5 +77,21 @@ class Task
         $this->description = $description;
 
         return $this;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isStatus()
+    {
+        return $this->status;
+    }
+
+    /**
+     * @param bool $status
+     */
+    public function setStatus(bool $status)
+    {
+        $this->status = $status;
     }
 }

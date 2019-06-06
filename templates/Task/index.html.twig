@@ -1,5 +1,31 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Hello</h1>
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">UserName</th>
+            <th scope="col">Email</th>
+            <th scope="col">Status</th>
+            <th scope="col">Description</th>
+        </tr>
+        </thead>
+        <tbody>
+            {% for task in tasks %}
+            <tr>
+                <th scope="row">{{ task.id }}</th>
+                <td>{{ task.username }}</td>
+                <td>
+                    <input type="checkbox" {% if task.status %} checked="checked" {% endif %}/>
+                </td>
+                <td>{{ task.email }}</td>
+                <td>{{ task.description }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <div class="center-block">
+        {{ knp_pagination_render(tasks, "Pagination/pagination.html.twig") }}
+    </div>
 {% endblock %}
