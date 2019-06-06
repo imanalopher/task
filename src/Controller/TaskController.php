@@ -25,7 +25,7 @@ class TaskController extends AbstractController
      *
      * @Route(name="homepage")
      */
-    public function number(TaskRepository $taskRepository, Request $request, PaginatorInterface $paginator)
+    public function index(TaskRepository $taskRepository, Request $request, PaginatorInterface $paginator)
     {
         $allTasksQuery = $taskRepository->findAllByPaginate();
         $tasks = $paginator->paginate(
